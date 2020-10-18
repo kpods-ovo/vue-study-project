@@ -6,6 +6,7 @@ var htmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 // 导出一个配置对象，将来webpack在启动的时候，会默认来查找webpack.config.js，并读取这个文件中导出的配置对象，来进行打包处理
 module.exports = {
+    mode: "development",
     entry: path.resolve(__dirname, 'src/main.js'), // 项目入口文件
     output: { // 配置输出选项
         path: path.resolve(__dirname, 'dist'), // 配置输出的路径
@@ -22,10 +23,10 @@ module.exports = {
         rules: [ // 文件的匹配规则
             { test: /\.css$/, use: ['style-loader', 'css-loader'] },//处理css文件的规则
             { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] },
-            { test: /\.(png|jpg|gif)$/, use: 'url-loader' },
+            { test: /\.(png|jpg|gif)$/, loader: 'url-loader', options: { esModule: false } },//esModule是为了让路径正确显示
             { test: /\.js$/, use: 'babel-loader', exclude: /node_modules/ },
             { test: /\.vue$/, use: 'vue-loader' },
-            { test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/, loader: 'file-loader' }
+            { test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/, loader: 'file-loader', options: { esModule: false } }
         ]
     },
     resolve: {

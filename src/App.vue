@@ -3,7 +3,10 @@
         <!-- 顶部栏 -->
         <mt-header fixed title="Vue练手项目-不知道起啥名字"></mt-header>
 
-        <h1>测试</h1>
+		<!-- 组件 -->
+		<transition>
+			<router-view></router-view>
+		</transition>
 
         <!-- 底部切换栏 -->
         <nav class="mui-bar mui-bar-tab">
@@ -34,5 +37,20 @@
 <style scoped>
     .topbar{
         padding-top: 40px;
+		padding-bottom: 50px;
+		overflow-x: hidden;
     }
+	.v-enter{
+		opacity: 0;
+		transform: translateX(100%);
+	}
+	.v-leave-to{
+		opacity: 0;
+		transform: translateX(-100%);
+		position: absolute;
+	}
+	.v-enter-active,
+	.v-leave-active{
+		transition: all 0.5s ease;
+	}
 </style>
