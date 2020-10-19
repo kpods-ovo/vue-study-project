@@ -3,16 +3,18 @@
         <div class="newlist_contents" v-if="details[0]">
             <h4>{{details[0].title}}</h4>
             <div class="newlist_time">
-                <span>发表时间: {{details[0].add_time}}</span>
+                <span>发表时间: {{details[0].add_time | dateFormat('yyyy-MM-dd hh:mm:ss')}}</span>
                 <span>点击{{details[0].click}}次</span>
             </div>
             <hr>
             <div v-html="details[0].content"></div>
         </div>
+        <comment></comment>
     </div>
 </template>
 
 <script>
+    import comment from './Comment.vue';
     export default {
         data() {
             return {
@@ -31,6 +33,9 @@
                     console.log('请求失败desune!');
                 })
             }
+        },
+        components: {
+            comment
         }
     }
 </script>
@@ -46,7 +51,8 @@
         color: rgba(255, 0, 0, 0.767);
         text-align: center;
     }
-    .newlist_time{
+
+    .newlist_time {
         display: flex;
         justify-content: space-between;
         font-size: 13px;

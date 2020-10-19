@@ -7,7 +7,7 @@
                     <div class="mui-media-body">
                         <h4>{{item.title}}</h4>
                         <div>
-                            <span>{{item.add_time}}</span>
+                            <span>{{item.add_time | dateFormat('yyyy-MM-dd hh:mm:ss')}}</span>
                             <span>点击: {{item.click}}次</span>
                         </div>
                     </div>

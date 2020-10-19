@@ -54,7 +54,7 @@
                     if (response.body.status === 0) {
                         this.RotationChartList = response.body.message;
                     } else {
-
+                        console.log("请求数据失败desune!");
                     }
                 })
             }
