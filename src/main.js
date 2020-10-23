@@ -8,6 +8,11 @@ Vue.use(VueRouter);
 // 导入vue-resource的包
 import VueResource from 'vue-resource';
 Vue.use(VueResource);
+
+// 导入vue-preview组件
+import VuePreview from 'vue-preview';
+Vue.use(VuePreview);
+
 // 全局配置根域名
 Vue.http.options.root = 'http://www.liulongbin.top:3005/';
 Vue.http.options.emulateJSON = true;
@@ -18,12 +23,14 @@ import app from './App.vue';
 // 导入router.js文件
 import router from './router.js'
 
+import VueLazyLoad from 'vue-lazyload';
 // 引入mint-ui组件库的相关组件
-import { Header, Swipe, SwipeItem, Button } from 'mint-ui';
+import { Header, Swipe, SwipeItem, Button, Lazyload } from 'mint-ui';
+Vue.use(Lazyload);
 
 // 引入mui的相关文件
 import './lib/mui/css/mui.css';
-import './lib/mui/css/icons-extra.css'
+import './lib/mui/css/icons-extra.css';
 
 Vue.component(Header.name, Header);
 Vue.component(Swipe.name, Swipe);

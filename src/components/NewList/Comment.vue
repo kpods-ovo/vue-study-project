@@ -25,6 +25,7 @@
         name: "comment",
         data() {
             return {
+                id: this.$route.params.id,
                 pageindex: 1,
                 comments: [],
                 mycomment: ""
@@ -35,7 +36,7 @@
         },
         methods: {
             getComment() {
-                this.$http.get('api/getcomments/' + this.$route.params.newid + '?pageindex=' + this.pageindex).then((response) => {
+                this.$http.get('api/getcomments/' + this.id + '?pageindex=' + this.pageindex).then((response) => {
                     this.comments = this.comments.concat(response.body.message);
                 })
             },
@@ -44,7 +45,7 @@
                 this.getComment();
             },
             setComment() {
-                this.$http.post('api/postcomment/' + this.$route.params.newid, { content: this.mycomment }).then((response) => {
+                this.$http.post('api/postcomment/' + this.id, { content: this.mycomment }).then((response) => {
                     Toast({ message: "评论发送成功!", duration: 1500 })
                     this.comments.unshift({ add_time: Date(), content: this.mycomment, user_name: "匿名用户" });
                 }, (err) => {
