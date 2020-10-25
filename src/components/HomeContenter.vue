@@ -13,15 +13,19 @@
                 <router-link to="/home/newlist">
                     <img src="../images/menu1.png" alt="">
                     <div class="mui-media-body">新闻资讯</div>
-                </router-link></li>
+                </router-link>
+            </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <router-link to="/home/photos">
                     <img src="../images/menu2.png" alt="">
                     <div class="mui-media-body">图片分享</div>
-                </router-link></li>
+                </router-link>
+            </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-                    <img src="../images/menu3.png" alt="">
-                    <div class="mui-media-body">商品购买</div>
+                    <router-link to="/home/goods">
+                        <img src="../images/menu3.png" alt="">
+                        <div class="mui-media-body">商品购买</div>
+                    </router-link>
                 </a></li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
                     <img src="../images/menu4.png" alt="">
@@ -72,19 +76,23 @@
         height: 100%;
         width: 100%;
     }
-    .mui-grid-view.mui-grid-9{
+
+    .mui-grid-view.mui-grid-9 {
         background-color: #fff;
     }
-    .mui-table-view img{
+
+    .mui-table-view img {
         width: 60px;
         height: 60px;
     }
-    .mui-grid-view.mui-grid-9 .mui-table-view-cell{
+
+    .mui-grid-view.mui-grid-9 .mui-table-view-cell {
         margin: 10px 16px;
         border: none;
         padding: 0px 15px;
     }
-    .mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body{
+
+    .mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body {
         font-size: 13px;
     }
 </style>

@@ -1,7 +1,9 @@
 <template>
 	<div class="topbar">
 		<!-- 顶部栏 -->
-		<mt-header fixed title="Vue练手项目-不知道起啥名字"></mt-header>
+		<mt-header fixed title="Vue练手项目-不知道起啥名字">
+			<mt-button icon="back" slot="left" @click="goBack">返回</mt-button>
+		</mt-header>
 
 		<!-- 组件 -->
 		<transition>
@@ -19,7 +21,7 @@
 				<span class="mui-tab-label">会员</span>
 			</router-link>
 			<router-link class="mui-tab-item-fix" to="/shopcar">
-				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">0</span></span>
+				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge" id="badge">0</span></span>
 				<span class="mui-tab-label">购物车</span>
 			</router-link>
 			<router-link class="mui-tab-item-fix" to="/search">
@@ -31,7 +33,18 @@
 </template>
 
 <script>
+	export default {
+		data() {
+			return {
 
+			}
+		},
+		methods: {
+			goBack() {
+				this.$router.go(-1);
+			}
+		}
+	}
 </script>
 
 <style scoped>
@@ -114,5 +127,10 @@
 
 	.mui-bar-tab .mui-tab-item-fix.mui-active {
 		color: #007aff;
+	}
+
+	.mint-button:active {
+		color: #fff;
+		background-color: transparent;
 	}
 </style>

@@ -37,6 +37,9 @@ Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 Vue.component(Button.name, Button);
 
+// 引入jQuery
+import $ from 'jquery';
+
 // 定义时间格式化的过滤器
 Vue.filter('dateFormat', function (dateStr, format = 'yyyy-mm-dd hh:mm:ss') {
     let date = new Date(dateStr);

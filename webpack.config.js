@@ -33,5 +33,6 @@ module.exports = {
         alias: {
             'vue$': 'vue/dist/vue.esm.js'
         }
-    }
+    },
+    devtool: 'cheap-module-eval-source-map'
 }

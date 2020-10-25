@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "babel-plugin-transform-remove-strict-mode": "0.0.2",
+    "jquery": "^3.5.1",
     "mint-ui": "^2.2.13",
     "vue": "^2.6.12",
     "vue-preview": "^1.1.3",
