@@ -86,10 +86,20 @@
         height: 60px;
     }
 
+    .mui-table-view li{
+        margin: 0;
+        width: 30%;
+    }
+
+    .mui-table-view{
+        text-align: center;
+    }
+
     .mui-grid-view.mui-grid-9 .mui-table-view-cell {
-        margin: 10px 16px;
+        /* margin: 10px 16px; */
+        /* margin: 0 1.5%; */
         border: none;
-        padding: 0px 15px;
+        /* padding: 0px 15px; */
     }
 
     .mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body {
