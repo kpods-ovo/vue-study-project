@@ -52,6 +52,7 @@
 
 <script>
     import numbox from './Numbox.vue';
+    import mui from '../../lib/mui/js/mui.js';
     export default {
         data() {
             return {
@@ -60,6 +61,10 @@
                 goodsInfos: [],
                 isShow: false
             }
+        },
+        updated() {
+            mui(".mui-numbox").numbox();
+            // 解决加减按钮点击无效的bug
         },
         created() {
             this.getGoodsPhotos();
@@ -84,6 +89,14 @@
             },
             showBall() {
                 this.isShow = !this.isShow;
+                goodsDetail = {
+                    id: this.id,
+                    price: this.goodsInfos.sell_price,
+                    selected: true,
+                    count: this.$store.state.newQuantity,
+                    stock: this.goodsInfos.stock_quantity
+                }
+                this.$store.commit('addShopCar',goodsDetail);
             },
             beforeEnter(el) {
                 el.style.transform = "translate(0, 0)";
@@ -104,7 +117,7 @@
                 this.isShow = !this.isShow;
             }
         },
-        components:{
+        components: {
             numbox
         }
     }

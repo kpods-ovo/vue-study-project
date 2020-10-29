@@ -2,7 +2,7 @@
 	<div class="topbar">
 		<!-- 顶部栏 -->
 		<mt-header fixed title="Vue练手项目-不知道起啥名字">
-			<mt-button icon="back" slot="left" @click="goBack">返回</mt-button>
+			<mt-button icon="back" slot="left" @click="goBack" v-show="goBackShow">返回</mt-button>
 		</mt-header>
 
 		<!-- 组件 -->
@@ -21,7 +21,8 @@
 				<span class="mui-tab-label">会员</span>
 			</router-link>
 			<router-link class="mui-tab-item-fix" to="/shopcar">
-				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge" id="badge">0</span></span>
+				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge"
+						id="badge">{{this.$store.state.oldQuantity}}</span></span>
 				<span class="mui-tab-label">购物车</span>
 			</router-link>
 			<router-link class="mui-tab-item-fix" to="/search">
@@ -36,12 +37,28 @@
 	export default {
 		data() {
 			return {
-
+				goBackShow: false,
 			}
 		},
 		methods: {
 			goBack() {
 				this.$router.go(-1);
+			}
+		},
+		created() {
+			if (this.$route.path == '/home') {
+				this.goBackShow = false;
+			} else {
+				this.goBackShow = true;
+			}
+		},
+		watch: {
+			'$route.path'(newVal) {
+				if (newVal == '/home') {
+					this.goBackShow = false;
+				} else {
+					this.goBackShow = true;
+				}
 			}
 		}
 	}
